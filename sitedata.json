@@ -1,12 +1,51 @@
 [
-  {
-    "title": "",
-    "smallImage": "",
-    "smallImageAlt": "",
-    "largeImage": "",
-    "largeImageAlt": "S",
-    "projectText": "",
-    "challengesText": "",
-    "technologies": ["", "", "", ""]
-  }
+    {
+        "title": "Bulk Chemical Cartage",
+        "subtitle": "Website Application",
+        "projectText": "This project involved creating a custom software solution for BCC Transport's internal paperwork processes, including timesheets, compliance and safety checks, staff onboarding, single sign on (SSO), and more. It includes a website created with .NET Web API server, MSSQL as the database, and a Blazor Client, authenticating against the company's Azure AD, so staff can login using their work email. This solution allows all branches across Australia to have a central source of information, enable easier payroll processing and allow managers to better monitor company performance.",
+        "benefits": [
+            "Staff timesheet tracking removed the need of paperwork and saved over 15 hours of administration for office staff and drivers per fortnight company-wide",
+            "Creation of vehicle compliance checklist to comply with NSW safety regulations allows for detailed, accurate reports for auditing purposes and efficient flagging of safety and compliance issues",
+            "New company website allows potential customers to easily contact for services",
+            "Automation and schedule of tasks, as well as automated emails, allows users to have a list of tasks to be completed, saving office staff 4-6 hours weekly in administrative work"
+        ],
+        "projectPhotos": [
+            "images/bcc/item1.jpg",
+            "images/bcc/item2.jpg"
+        ]
+    },
+    {
+        "title": "Norwest Christian College",
+        "subtitle": "Online Business Platform",
+        "projectText": "A complete transition from various online and offline processes at Norwest Christian College to an efficient and streamlined online platform, including approval processes such as purchase orders and leave, as well as a Student Management System (SMS) for students with additional learning and medical needs. It includes a various website applications created with .NET Web API server, MSSQL as the databases, and various Blazor and Angular clients. Solutions also include desktop UIs using WPF and WinForms as well as data visualisation and analysis using PowerBi.",
+        "benefits": [
+            "Staff timesheet tracking saves payroll staff 5 hours per fortnight in administration",
+            "Streamlined staff approval processes (leave applications, professional development forms, etc.) result in better data workflows and detailed, accurate compliance reports for auditing purposes",
+            "Creation of Student Management System resulted in efficient online platform that saved College staff over 15 hours per week in administration, printing, reporting and management of data",
+            "A complex web application securely manages all student-related data including medical, learning, and personal information to enable parents, teachers and external professionals to easily access and filter relevant data from one secure location",
+            "Automated submission process for referral forms saves a total of 5 hours of manual administration per week"
+        ],
+        "projectPhotos": [
+            "images/nwcc/item1.jpg",
+            "images/nwcc/item2.jpg"
+        ]
+    },
+    {
+        "title": "Aimee's Recipies",
+        "subtitle": "E-Commerce Website",
+        "projectText": "",
+        "benefits": [
+        ],
+        "projectPhotos": [
+        ]
+    },
+    {
+        "title": "",
+        "subtitle": "",
+        "projectText": "",
+        "benefits": [
+        ],
+        "projectPhotos": [
+        ]
+    }
 ]

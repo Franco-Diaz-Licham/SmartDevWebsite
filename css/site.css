@@ -1,37 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
-html{
-    font-family:'Quicksand',sans-serif;
-    font-weight: 300;
-    font-size: 22px;
+html {
+    font-size: 20px;
 }
 
-footer{
+body {
+    font-family: 'Raleway';
+}
+
+footer {
     background-color: #000000;
     color: #FFFFFF;
-    font-size: 0.67rem;
     text-align: center;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding: 0;
+    padding: 2rem;
 }
 
-.logo{
-    width: 4rem;
-    height: 4rem;
+.logo {
+    width: 4.5rem;
+    height: 4.5rem;
 }
 
-header{
+header {
     position: sticky;
     top: 0;
     z-index: 100;
-} 
+}
 
 nav {
     display: flex;
 }
 
-nav div{
+nav div {
     justify-content: end;
+}
+
+nav ul li a {
+    color: black !important;
 }
 
 h1 {
@@ -41,6 +47,31 @@ h1 {
     text-align: left;
 }
 
+p,
+li,
+label {
+    color: black;
+}
+
+#about-me h1,
+#services h1,
+#portfolio h1,
+#contact-me h1 {
+    color: rgb(0, 0, 0);
+}
+
+.nav-item :hover {
+    text-decoration: underline;
+}
+
+.nav-item a {
+    font-weight: 700;
+}
+
+h5 {
+    text-transform: uppercase;
+}
+
 .container-xxxl {
     max-width: 1920px;
     margin: auto;
@@ -48,26 +79,55 @@ h1 {
 
 .about-me-highlight {
     color: #008AFC;
+    font-weight: 600;
 }
 
-#hero{
+#hero {
     position: relative;
     color: #FFFFFF;
     background-color: #008AFC;
-    background: linear-gradient(rgba(110, 0, 110, 0.8), rgba(0, 68, 255, 0.8)), url("/images/hero.png"); 
+    background: linear-gradient(rgba(110, 0, 110, 0.8), rgba(0, 68, 255, 0.8)), url("/images/hero.png");
     background-size: cover;
-    background-repeat:no-repeat;
+    background-repeat: no-repeat;
     height: 70vh;
 }
 
-#hero .hero-text {
+.hero-text, .portfolio-text {
     position: absolute;
     top: calc(70vh - 70%);
     left: 11%;
+    text-transform: capitalize;
 }
 
-#hero .hero-text h1 {
-    font-size: 3.5rem;
+.hero-text h1, .portfolio-text h1 {
+    font-size: 4rem;
+}
+
+#portfolio-hero {
+    position: relative;
+    color: #FFFFFF;
+    background-color: #008AFC;
+    background: linear-gradient(rgba(110, 0, 110, 0.8), rgba(0, 68, 255, 0.8)), url("/images/portfolio.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 70vh;
+}
+
+#benefits{
+    background-color: #F3F3F3;
+}
+
+#benefitsList li{
+    margin-top: 0.8rem;
+    margin-bottom: 0.8rem;
+}
+
+#hide-small-photo {
+    display: none;
+}
+
+#hide-big-photo {
+    display: initial;
 }
 
 #services {
@@ -75,25 +135,37 @@ h1 {
     background-color: #F3F3F3;
 }
 
-#services .content{
+#services .content {
     padding-top: 4rem;
     padding-bottom: 4rem;
 }
 
 .services-list {
     display: grid;
-    grid-template-columns: auto auto;
-    row-gap: 2rem;
+    grid-template-columns: 13rem auto;
+    row-gap: 3rem;
+    column-gap: 1rem;
+    max-width: 50rem;
+    margin: auto;
+}
+
+.services-list h5 {
+    color: rgba(110, 0, 110, 0.8);
+    font-weight: bold;
+}
+
+.border-line {
+    border-bottom: 1px solid black;
 }
 
 .services-list img {
-    width: 25%;
-    align-self: center;
+    width: 40%;
+    height: 40%;
 }
 
 #about-me {
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
     scroll-margin-top: calc(4rem * 2);
 }
 
@@ -110,16 +182,18 @@ h1 {
 
 .portfolio-item-img {
     overflow: hidden;
+    max-height: 60%;
 }
 
 #portfolio img {
     width: 100%;
-    height: 100%;
+    object-fit: fill;
 }
 
 .card {
     max-width: 540px;
     box-shadow: 0 10px 15px rgb(160, 160, 160);
+    background-color: rgba(0, 68, 255, 0.5);
 }
 
 .card:hover img {
@@ -132,10 +206,6 @@ h1 {
 .card:hover {
     cursor: pointer;
     background-color: #008AFC;
-} 
-
-.break {
-    border: 20px solid #4e5AC3 ;
 }
 
 form div {
@@ -149,16 +219,38 @@ button {
     margin-bottom: 2rem;
 }
 
-#contact-me{
+#contact-me {
     padding-top: 4rem;
     padding-bottom: 4rem;
     scroll-margin-top: calc(4rem * 2);
     background-color: #F3F3F3;
 }
 
+.icons {
+    font-size: 1.8rem;
+    color: #FFFFFF;
+}
 
-@media screen and (max-width: 600px){
-    html{
+.icons:hover {
+    color: #adadad;
+}
+
+.carousel{
+    overflow: hidden;
+    max-height: 40rem;
+}
+
+#project, #benefits, #portfolioPhotos {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+#carouselExampleIndicators {
+    box-shadow: 0 10px 15px rgb(160, 160, 160);
+    border-radius: 1rem;
+}
+
+@media screen and (max-width: 600px) {
+    html {
         font-size: 14px;
     }
 
@@ -169,26 +261,47 @@ button {
     #hero .hero-text h1 {
         font-size: 3rem;
     }
+
+    .services-list {
+        grid-template-columns: 7rem auto;
+        padding-right: 1rem;
+    }
+
+    .services-list img {
+        width: 60%;
+    }
+
+    #hide-small-photo {
+        display: inherit;
+        width: 55%;
+        justify-self: center;
+    }
+
+    #hide-big-photo {
+        display: none;
+    }
+
+    .carousel{
+        max-height: 15rem;
+    }
 }
 
-@media screen and (min-width: 601px) and (max-width: 767px){
-    html{
+@media screen and (min-width: 601px) and (max-width: 767px) {
+    html {
         font-size: 20px;
-    }    
+    }
 }
 
-@media screen and (min-width: 768px) and (max-width: 991px){
-    html{
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    html {
         font-size: 26px;
     }
 }
 
-@media screen and (min-width: 992px) and (max-width: 1199px){
-    html{
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    htrml {
         font-size: 30px;
     }
 }
 
-@media screen and (min-width: 1200px){
-
-}
+@media screen and (min-width: 1200px) {}

@@ -6,8 +6,8 @@
 
     app.homePage = async function(){
         setCopyrightDate();
-        await loadPageData();
         wireContactForm();
+        wireUpPage();
     };
 
     app.portfolioItem = async function(){
@@ -17,10 +17,22 @@
         updateItemPage();
     };
 
+    function wireUpPage(){
+        const items = document.querySelectorAll('.card');
+
+        items.forEach(item => {
+            item.addEventListener('click', () => navigateToItem(item) )
+        });
+    }
+
+    function navigateToItem(e){
+        window.location.href = `/portfolioItem.html?item=${e.id}`;
+    }
+
     function setCopyrightDate(){
         const date = new Date();
         var e = document.getElementById('copyrightYear');
-        e.innerText = date.getFullYear();
+        e.innerHTML = `&copy; ${date.getFullYear()} by Franco Diaz`;
     }
 
     function wireContactForm(){
@@ -32,10 +44,10 @@
         e.preventDefault();
         const form = document.getElementById('contact-form');
         const name = form.querySelector("#name");
-        const email = form.querySelector("#email");
+        const email = 'smartdevau@outlook.com';
         const message = form.querySelector("#message");
 
-        const mailTo = `mailto:${email.value}?subject=Contact From ${name.value}&body=${message.value}`
+        const mailTo = `mailto:${email}?subject=Contact From ${name.value}&body=${message.value}`
         window.open(mailTo);
 
         name.value = '';
@@ -66,31 +78,50 @@
         }
 
         app.selectedItem = app.portfolioItems[item - 1];
-        app.selectedItem.id = item;
+        console.log(app.selectedItem);
     }
 
     function updateItemPage(){
-        const header = document.getElementById('work-item-header');
-        const image = document.getElementById('work-item-image');
-        const projectText = document.querySelector('#project-text p');
-        const techSection = document.getElementById('technologies-text');
-        const initProjectTech = document.querySelector('#technologies-text ul');
-        const projectCha = document.querySelector('#challenges-text p');
+        const title = document.getElementById('title');
+        const subtitle = document.getElementById('subtitle');
+        const projectText = document.getElementById('projectText');
+        const benefits = document.getElementById('benefitsList');
 
-        header.innerText = `0${app.selectedItem.id}. ${app.selectedItem.title}`
-        image.src = app.selectedItem.largeImage;
-        image.alt = app.selectedItem.largeImageAlt;
-        projectText.innerText = app.selectedItem.projectText;
-        projectCha.innerText = app.selectedItem.challengesText;
+        title.innerHTML = `${app.selectedItem.title}`
+        subtitle.innerText = `${app.selectedItem.subtitle}`
+        projectText.innerText = `${app.selectedItem.projectText}`
 
-        const finalProjectTech = document.createElement("ul");
-        for (let i = 0; i < app.selectedItem.technologies.length; i++) {
+        for (let i = 0; i < app.selectedItem.benefits.length; i++) {
             const item = document.createElement("li");
-            item.innerText = app.selectedItem.technologies[i];
-            finalProjectTech.appendChild(item);
+            item.innerText = app.selectedItem.benefits[i];
+            benefits.appendChild(item);
         }
 
-        initProjectTech.remove();
-        techSection.appendChild(finalProjectTech);
+        const indicators = document.querySelector('#carouselExampleIndicators .carousel-indicators');
+        for (let i = 0; i < app.selectedItem.projectPhotos.length; i++) {
+            const button = document.createElement("button");
+            button.type = 'button';
+            button.setAttribute('data-bs-target', '#carouselExampleIndicators');
+            button.setAttribute('data-bs-slide-to', i);
+            button.setAttribute('aria-label', `Slide ${i + 1}`);
+
+            const carousel = document.querySelector('#carouselExampleIndicators .carousel-inner');
+            const imageDiv = document.createElement('div');
+            const img = document.createElement('img');
+            imageDiv.className = 'carousel-item';
+            img.src = app.selectedItem.projectPhotos[i];
+            img.className = 'd-block w-100';
+
+            if(i === 0){
+                button.className = 'active';
+                button.setAttribute('aria-current', 'true');
+                imageDiv.classList.add('active');
+            }
+            
+            indicators.appendChild(button);
+            imageDiv.appendChild(img);
+            carousel.appendChild(imageDiv);
+        }
+
     }
 })(window.app = window.app || {})
